@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		219171672BA1AE2500E74011 /* SwiftGenTemplate.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 219171662BA1AE2500E74011 /* SwiftGenTemplate.stencil */; };
+		219171692BA1AE8600E74011 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171682BA1AE8600E74011 /* XCAssets+Generated.swift */; };
+		2191716C2BA1B08E00E74011 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 2191716B2BA1B08E00E74011 /* MapboxMaps */; };
 		21AA81A32BA1ABC200E4FCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */; };
 		21AA81A52BA1ABC200E4FCDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */; };
 		21AA81A72BA1ABC200E4FCDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A62BA1ABC200E4FCDC /* ViewController.swift */; };
-		21AA81AA2BA1ABC200E4FCDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AA81A82BA1ABC200E4FCDC /* Main.storyboard */; };
 		21AA81AC2BA1ABC400E4FCDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */; };
 		21AA81AF2BA1ABC400E4FCDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AA81AD2BA1ABC400E4FCDC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		219171662BA1AE2500E74011 /* SwiftGenTemplate.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftGenTemplate.stencil; sourceTree = "<group>"; };
+		219171682BA1AE8600E74011 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		21AA819F2BA1ABC200E4FCDC /* OpenStreetMapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenStreetMapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		21AA81A62BA1ABC200E4FCDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21AA81A92BA1ABC200E4FCDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21AA81AE2BA1ABC400E4FCDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21AA81B02BA1ABC400E4FCDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,12 +34,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2191716C2BA1B08E00E74011 /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		219171612BA1AD1000E74011 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		219171622BA1AD1D00E74011 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */,
+				21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */,
+				21AA81A62BA1ABC200E4FCDC /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		219171632BA1AD3D00E74011 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				21AA81AD2BA1ABC400E4FCDC /* LaunchScreen.storyboard */,
+				21AA81B02BA1ABC400E4FCDC /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		219171642BA1AD5B00E74011 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				219171682BA1AE8600E74011 /* XCAssets+Generated.swift */,
+				219171652BA1AD6300E74011 /* Templates */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		219171652BA1AD6300E74011 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				219171662BA1AE2500E74011 /* SwiftGenTemplate.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		21AA81962BA1ABC200E4FCDC = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +104,10 @@
 		21AA81A12BA1ABC200E4FCDC /* OpenStreetMapTest */ = {
 			isa = PBXGroup;
 			children = (
-				21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */,
-				21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */,
-				21AA81A62BA1ABC200E4FCDC /* ViewController.swift */,
-				21AA81A82BA1ABC200E4FCDC /* Main.storyboard */,
-				21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */,
-				21AA81AD2BA1ABC400E4FCDC /* LaunchScreen.storyboard */,
-				21AA81B02BA1ABC400E4FCDC /* Info.plist */,
+				219171622BA1AD1D00E74011 /* App */,
+				219171612BA1AD1000E74011 /* Resources */,
+				219171642BA1AD5B00E74011 /* Generated */,
+				219171632BA1AD3D00E74011 /* SupportingFiles */,
 			);
 			path = OpenStreetMapTest;
 			sourceTree = "<group>";
@@ -74,15 +119,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21AA81B32BA1ABC400E4FCDC /* Build configuration list for PBXNativeTarget "OpenStreetMapTest" */;
 			buildPhases = (
+				21AA81B72BA1AC5900E4FCDC /* Swiftgen */,
 				21AA819B2BA1ABC200E4FCDC /* Sources */,
 				21AA819C2BA1ABC200E4FCDC /* Frameworks */,
 				21AA819D2BA1ABC200E4FCDC /* Resources */,
+				21AA81B62BA1AC3500E4FCDC /* Swiftlint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = OpenStreetMapTest;
+			packageProductDependencies = (
+				2191716B2BA1B08E00E74011 /* MapboxMaps */,
+			);
 			productName = OpenStreetMapTest;
 			productReference = 21AA819F2BA1ABC200E4FCDC /* OpenStreetMapTest.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 21AA81962BA1ABC200E4FCDC;
+			packageReferences = (
+				2191716A2BA1B08E00E74011 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
 			productRefGroup = 21AA81A02BA1ABC200E4FCDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,12 +179,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AA81AF2BA1ABC400E4FCDC /* LaunchScreen.storyboard in Resources */,
+				219171672BA1AE2500E74011 /* SwiftGenTemplate.stencil in Resources */,
 				21AA81AC2BA1ABC400E4FCDC /* Assets.xcassets in Resources */,
-				21AA81AA2BA1ABC200E4FCDC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21AA81B62BA1AC3500E4FCDC /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		21AA81B72BA1AC5900E4FCDC /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Remove read-only permissions temporarily\nchmod +w OpenStreetMapTest/Generated/XCAssets+Generated.swift\n\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n\n# Set read-only permissions\nchmod a-w OpenStreetMapTest/Generated/XCAssets+Generated.swift\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21AA819B2BA1ABC200E4FCDC /* Sources */ = {
@@ -141,20 +237,13 @@
 				21AA81A72BA1ABC200E4FCDC /* ViewController.swift in Sources */,
 				21AA81A32BA1ABC200E4FCDC /* AppDelegate.swift in Sources */,
 				21AA81A52BA1ABC200E4FCDC /* SceneDelegate.swift in Sources */,
+				219171692BA1AE8600E74011 /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		21AA81A82BA1ABC200E4FCDC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21AA81A92BA1ABC200E4FCDC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		21AA81AD2BA1ABC400E4FCDC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -218,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -275,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -292,11 +381,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OpenStreetMapTest/Info.plist;
+				INFOPLIST_FILE = OpenStreetMapTest/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -319,11 +408,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OpenStreetMapTest/Info.plist;
+				INFOPLIST_FILE = OpenStreetMapTest/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +450,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2191716A2BA1B08E00E74011 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2191716B2BA1B08E00E74011 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2191716A2BA1B08E00E74011 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21AA81972BA1ABC200E4FCDC /* Project object */;
 }

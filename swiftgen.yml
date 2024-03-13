@@ -1,0 +1,13 @@
+ input_dir: OpenStreetMapTest/Resources
+
+ output_dir: OpenStreetMapTest/Generated/
+
+ xcassets: 
+   inputs:
+     - Assets.xcassets
+
+   outputs: 
+     - templatePath: OpenStreetMapTest/Generated/Templates/SwiftGenTemplate.stencil
+       params:
+         forceProvidesNamespaces: true 
+       output: XCAssets+Generated.swift
