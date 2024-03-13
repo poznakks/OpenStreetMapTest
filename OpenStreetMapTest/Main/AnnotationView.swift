@@ -15,7 +15,7 @@ final class AnnotationView: UIView {
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: Constants.nameAndLastSeenLabelsFontSize, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         return label
@@ -23,7 +23,7 @@ final class AnnotationView: UIView {
 
     private lazy var lastSeenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: Constants.nameAndLastSeenLabelsFontSize)
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         return label
@@ -32,7 +32,7 @@ final class AnnotationView: UIView {
     init(pointAnnotation: PointAnnotation) {
         self.pointAnnotation = pointAnnotation
         self.info = PointAnnotationInfo.fromJSONObject(pointAnnotation.customData)
-        let frame = CGRect(x: 0, y: 0, width: 120, height: 60)
+        let frame = CGRect(x: 0, y: 0, width: Constants.viewWidth, height: Constants.viewHeight)
         super.init(frame: frame)
         setup()
         setupConstraints()
@@ -45,8 +45,8 @@ final class AnnotationView: UIView {
 
     private func setup() {
         backgroundColor = .systemBackground
-        layer.cornerRadius = 16
-        layer.borderWidth = 1
+        layer.cornerRadius = Constants.viewCornerRadius
+        layer.borderWidth = Constants.viewBorderWidth
         layer.borderColor = UIColor.black.cgColor
         nameLabel.text = info?.name ?? "No name"
         lastSeenLabel.text = info?.lastSeen
@@ -55,14 +55,26 @@ final class AnnotationView: UIView {
     private func setupConstraints() {
         let stack = UIStackView(arrangedSubviews: [nameLabel, lastSeenLabel])
         stack.axis = .vertical
-        stack.spacing = 2
+        stack.spacing = Constants.stackSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
-            stack.topAnchor.constraint(equalTo: topAnchor, constant: 6),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6)
+            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.stackInset),
+            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.stackInset),
+            stack.topAnchor.constraint(equalTo: topAnchor, constant: Constants.stackInset),
+            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.stackInset)
         ])
     }
+}
+
+private enum Constants {
+    static let stackSpacing: CGFloat = 2
+    static let stackInset: CGFloat = 6
+
+    static let viewHeight: CGFloat = 60
+    static let viewWidth: CGFloat = 120
+    static let viewCornerRadius: CGFloat = 12
+    static let viewBorderWidth: CGFloat = 1
+
+    static let nameAndLastSeenLabelsFontSize: CGFloat = 12
 }

@@ -66,11 +66,6 @@
 			children = (
 				21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */,
 				21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */,
-				21AA81A62BA1ABC200E4FCDC /* MainViewController.swift */,
-				2191716D2BA1B1B500E74011 /* CircleButton.swift */,
-				219171752BA1B57A00E74011 /* InfoPopupViewController.swift */,
-				219171772BA1B5D000E74011 /* FillDataPopupViewController.swift */,
-				219171792BA1B67300E74011 /* AnnotationView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -117,6 +112,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2191717B2BA1CB6100E74011 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21AA81A62BA1ABC200E4FCDC /* MainViewController.swift */,
+				2191716D2BA1B1B500E74011 /* CircleButton.swift */,
+				219171752BA1B57A00E74011 /* InfoPopupViewController.swift */,
+				219171772BA1B5D000E74011 /* FillDataPopupViewController.swift */,
+				219171792BA1B67300E74011 /* AnnotationView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		21AA81962BA1ABC200E4FCDC = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				219171622BA1AD1D00E74011 /* App */,
+				2191717B2BA1CB6100E74011 /* Main */,
 				219171722BA1B50200E74011 /* Model */,
 				2191716F2BA1B4BE00E74011 /* Extensions */,
 				219171612BA1AD1000E74011 /* Resources */,

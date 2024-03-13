@@ -9,44 +9,50 @@ import UIKit
 import MapboxMaps
 
 final class MainViewController: UIViewController {
-
+    
+    // MARK: Properties
     private var cancellables: Set<AnyCancelable> = []
 
     private lazy var pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
 
+    // MARK: UI Elements
     private lazy var mapView = MapView(frame: view.bounds)
 
     private lazy var plusZoomButton: CircleButton = {
         let button = CircleButton(image: Asset.plusZoom.image)
         button.addTarget(self, action: #selector(didTapPlusZoom), for: .touchUpInside)
-        view.addSubview(button)
         return button
     }()
 
     private lazy var minusZoomButton: CircleButton = {
         let button = CircleButton(image: Asset.minusZoom.image)
         button.addTarget(self, action: #selector(didTapMinusZoom), for: .touchUpInside)
-        view.addSubview(button)
         return button
     }()
 
     private lazy var moveToCurrentLocationButton: CircleButton = {
         let button = CircleButton(image: Asset.moveToCurrentLocation.image)
         button.addTarget(self, action: #selector(didTapMoveToCurrentLocation), for: .touchUpInside)
-        view.addSubview(button)
         return button
     }()
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         setupConstraints()
     }
 
+    // MARK: MapView setup
     private func setupMapView() {
         mapView.mapboxMap.onMapLoaded.observeNext { [weak self] _ in
             if let latestLocation = self?.mapView.location.latestLocation?.coordinate {
-                let cameraOptions = CameraOptions(center: latestLocation, zoom: 12, bearing: 0, pitch: 0)
+                let cameraOptions = CameraOptions(
+                    center: latestLocation,
+                    zoom: Constants.initialCameraZoom,
+                    bearing: 0,
+                    pitch: 0
+                )
                 self?.mapView.mapboxMap.setCamera(to: cameraOptions)
             }
         }.store(in: &cancellables)
@@ -67,38 +73,40 @@ final class MainViewController: UIViewController {
         view.addSubview(mapView)
     }
 
+    // MARK: Constraints
     private func setupConstraints() {
+        let stack: UIStackView = {
+            let stack = UIStackView(
+                arrangedSubviews: [plusZoomButton, minusZoomButton, moveToCurrentLocationButton]
+            )
+            stack.axis = .vertical
+            stack.spacing = Constants.buttonsSpacing
+            stack.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(stack)
+            return stack
+        }()
+
         NSLayoutConstraint.activate([
-            moveToCurrentLocationButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            moveToCurrentLocationButton.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor, constant: -20
-            ),
-            moveToCurrentLocationButton.heightAnchor.constraint(equalToConstant: 60),
-            moveToCurrentLocationButton.widthAnchor.constraint(equalToConstant: 60),
-
-            minusZoomButton.bottomAnchor.constraint(equalTo: moveToCurrentLocationButton.topAnchor, constant: -15),
-            minusZoomButton.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor, constant: -20
-            ),
-            minusZoomButton.heightAnchor.constraint(equalToConstant: 60),
-            minusZoomButton.widthAnchor.constraint(equalToConstant: 60),
-
-            plusZoomButton.bottomAnchor.constraint(equalTo: minusZoomButton.topAnchor, constant: -15),
-            plusZoomButton.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor, constant: -20
-            ),
-            plusZoomButton.heightAnchor.constraint(equalToConstant: 60),
-            plusZoomButton.widthAnchor.constraint(equalToConstant: 60)
+            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stack.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: Constants.buttonsTrailingAnchor
+            )
         ])
+        constrainButtonsWidthHeight([plusZoomButton, minusZoomButton, moveToCurrentLocationButton])
     }
 
+    // MARK: Actions
     @objc
     private func didTapMoveToCurrentLocation() {
         guard let latestLocation = mapView.location.latestLocation?.coordinate else {
             return
         }
         let cameraOptions = CameraOptions(center: latestLocation)
-        mapView.camera.ease(to: cameraOptions, duration: 1)
+        mapView.camera.ease(
+            to: cameraOptions,
+            duration: Constants.moveToCurrentLocationAnimationDuration
+        )
     }
 
     @objc
@@ -115,7 +123,10 @@ final class MainViewController: UIViewController {
         let cameraState = mapView.mapboxMap.cameraState
         let zoomValue = direction == .plus ? cameraState.zoom + 1 : cameraState.zoom - 1
         let cameraOptions = CameraOptions(zoom: zoomValue)
-        mapView.camera.ease(to: cameraOptions, duration: 0.3)
+        mapView.camera.ease(
+            to: cameraOptions,
+            duration: Constants.zoomAnimationDuration
+        )
     }
 
     private func openPopup(for pointAnnotation: PointAnnotation) {
@@ -125,16 +136,16 @@ final class MainViewController: UIViewController {
         }
 
         if let sheet = popupViewController.sheetPresentationController {
-            sheet.detents = [.custom { _ in 120 }]
+            sheet.detents = [.custom { _ in Constants.popupHeight }]
             sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 20
+            sheet.preferredCornerRadius = Constants.popupCornerRadius
         }
 
         present(popupViewController, animated: true)
     }
 }
 
-// MARK: Point Annotations
+// MARK: - Point Annotations
 private extension MainViewController {
     func addMarker(at coordinate: CLLocationCoordinate2D) {
         let fillDataVC = FillDataPopupViewController()
@@ -144,9 +155,9 @@ private extension MainViewController {
         }
 
         if let sheet = fillDataVC.sheetPresentationController {
-            sheet.detents = [.custom { _ in 120 }]
+            sheet.detents = [.custom { _ in Constants.popupHeight }]
             sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 20
+            sheet.preferredCornerRadius = Constants.popupCornerRadius
         }
 
         present(fillDataVC, animated: true)
@@ -175,13 +186,46 @@ private extension MainViewController {
             view: view
         )
         annotation.variableAnchors = [
-            ViewAnnotationAnchorConfig(anchor: .topLeft, offsetX: 7, offsetY: -5)
+            ViewAnnotationAnchorConfig(
+                anchor: .topLeft,
+                offsetX: Constants.viewAnnotationOffset.0,
+                offsetY: Constants.viewAnnotationOffset.1
+            )
         ]
         mapView.viewAnnotations.add(annotation)
     }
 }
 
+// MARK: - Constrain Buttons Width Height
+private extension MainViewController {
+    func constrainButtonsWidthHeight(_ buttons: [UIView]) {
+        buttons.forEach { button in
+            NSLayoutConstraint.activate([
+                button.heightAnchor.constraint(equalToConstant: Constants.buttonsWidthHeight),
+                button.widthAnchor.constraint(equalToConstant: Constants.buttonsWidthHeight)
+            ])
+        }
+    }
+}
+
+// MARK: - ZoomDirection
 private enum ZoomDirection {
     case plus
     case minus
+}
+
+// MARK: - Constants
+private enum Constants {
+    static let buttonsTrailingAnchor: CGFloat = -15
+    static let buttonsSpacing: CGFloat = 15
+    static let buttonsWidthHeight: CGFloat = 60
+
+    static let moveToCurrentLocationAnimationDuration: TimeInterval = 1
+    static let zoomAnimationDuration: TimeInterval = 0.3
+
+    static let popupHeight: CGFloat = 120
+    static let popupCornerRadius: CGFloat = 20
+
+    static let initialCameraZoom: CGFloat = 12
+    static let viewAnnotationOffset: (CGFloat, CGFloat) = (7, -5)
 }

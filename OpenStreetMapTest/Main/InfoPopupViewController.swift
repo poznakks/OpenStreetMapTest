@@ -31,7 +31,7 @@ final class InfoPopupViewController: UIViewController {
 
     private lazy var removeButton: UIButton = {
         var config = UIButton.Configuration.filled()
-        config.title = "Remove"
+        config.title = Constants.removeButtonLabel
         config.baseForegroundColor = .white
         config.baseBackgroundColor = .systemBlue
         config.cornerStyle = .capsule
@@ -66,15 +66,28 @@ final class InfoPopupViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: Constants.nameLabelToTopOffset
+            ),
 
             lastSeenLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lastSeenLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            lastSeenLabel.topAnchor.constraint(
+                equalTo: nameLabel.bottomAnchor,
+                constant: Constants.lastSeenLabelToNameLabelOffset
+            ),
 
             removeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            removeButton.topAnchor.constraint(equalTo: lastSeenLabel.bottomAnchor, constant: 20),
-            removeButton.heightAnchor.constraint(equalToConstant: 40),
-            removeButton.widthAnchor.constraint(equalToConstant: 300)
+            removeButton.topAnchor.constraint(
+                equalTo: lastSeenLabel.bottomAnchor,
+                constant: Constants.removeButtonToLastSeenLabelOffset
+            ),
+            removeButton.heightAnchor.constraint(
+                equalToConstant: Constants.removeButtonHeight
+            ),
+            removeButton.widthAnchor.constraint(
+                equalToConstant: Constants.removeButtonWidth
+            )
         ])
     }
 
@@ -83,4 +96,14 @@ final class InfoPopupViewController: UIViewController {
         onRemove?(pointAnnotation)
         dismiss(animated: true, completion: nil)
     }
+}
+
+private enum Constants {
+    static let nameLabelToTopOffset: CGFloat = 20
+    static let lastSeenLabelToNameLabelOffset: CGFloat = 10
+    static let removeButtonToLastSeenLabelOffset: CGFloat = 20
+    static let removeButtonHeight: CGFloat = 40
+    static let removeButtonWidth: CGFloat = 300
+
+    static let removeButtonLabel: String = "Remove"
 }
