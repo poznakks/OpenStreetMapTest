@@ -10,9 +10,15 @@
 		219171672BA1AE2500E74011 /* SwiftGenTemplate.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 219171662BA1AE2500E74011 /* SwiftGenTemplate.stencil */; };
 		219171692BA1AE8600E74011 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171682BA1AE8600E74011 /* XCAssets+Generated.swift */; };
 		2191716C2BA1B08E00E74011 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 2191716B2BA1B08E00E74011 /* MapboxMaps */; };
+		2191716E2BA1B1B500E74011 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191716D2BA1B1B500E74011 /* CircleButton.swift */; };
+		219171712BA1B4EF00E74011 /* PointAnnotation+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171702BA1B4EF00E74011 /* PointAnnotation+setup.swift */; };
+		219171742BA1B51300E74011 /* PointAnnotationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171732BA1B51300E74011 /* PointAnnotationInfo.swift */; };
+		219171762BA1B57A00E74011 /* InfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171752BA1B57A00E74011 /* InfoPopupViewController.swift */; };
+		219171782BA1B5D000E74011 /* FillDataPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171772BA1B5D000E74011 /* FillDataPopupViewController.swift */; };
+		2191717A2BA1B67300E74011 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219171792BA1B67300E74011 /* AnnotationView.swift */; };
 		21AA81A32BA1ABC200E4FCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */; };
 		21AA81A52BA1ABC200E4FCDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */; };
-		21AA81A72BA1ABC200E4FCDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A62BA1ABC200E4FCDC /* ViewController.swift */; };
+		21AA81A72BA1ABC200E4FCDC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA81A62BA1ABC200E4FCDC /* MainViewController.swift */; };
 		21AA81AC2BA1ABC400E4FCDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */; };
 		21AA81AF2BA1ABC400E4FCDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AA81AD2BA1ABC400E4FCDC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,10 +26,16 @@
 /* Begin PBXFileReference section */
 		219171662BA1AE2500E74011 /* SwiftGenTemplate.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftGenTemplate.stencil; sourceTree = "<group>"; };
 		219171682BA1AE8600E74011 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		2191716D2BA1B1B500E74011 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		219171702BA1B4EF00E74011 /* PointAnnotation+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointAnnotation+setup.swift"; sourceTree = "<group>"; };
+		219171732BA1B51300E74011 /* PointAnnotationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAnnotationInfo.swift; sourceTree = "<group>"; };
+		219171752BA1B57A00E74011 /* InfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPopupViewController.swift; sourceTree = "<group>"; };
+		219171772BA1B5D000E74011 /* FillDataPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillDataPopupViewController.swift; sourceTree = "<group>"; };
+		219171792BA1B67300E74011 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		21AA819F2BA1ABC200E4FCDC /* OpenStreetMapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenStreetMapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		21AA81A62BA1ABC200E4FCDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		21AA81A62BA1ABC200E4FCDC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		21AA81AB2BA1ABC400E4FCDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21AA81AE2BA1ABC400E4FCDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21AA81B02BA1ABC400E4FCDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +66,11 @@
 			children = (
 				21AA81A22BA1ABC200E4FCDC /* AppDelegate.swift */,
 				21AA81A42BA1ABC200E4FCDC /* SceneDelegate.swift */,
-				21AA81A62BA1ABC200E4FCDC /* ViewController.swift */,
+				21AA81A62BA1ABC200E4FCDC /* MainViewController.swift */,
+				2191716D2BA1B1B500E74011 /* CircleButton.swift */,
+				219171752BA1B57A00E74011 /* InfoPopupViewController.swift */,
+				219171772BA1B5D000E74011 /* FillDataPopupViewController.swift */,
+				219171792BA1B67300E74011 /* AnnotationView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -85,6 +101,22 @@
 			path = Templates;
 			sourceTree = "<group>";
 		};
+		2191716F2BA1B4BE00E74011 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				219171702BA1B4EF00E74011 /* PointAnnotation+setup.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		219171722BA1B50200E74011 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				219171732BA1B51300E74011 /* PointAnnotationInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		21AA81962BA1ABC200E4FCDC = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				219171622BA1AD1D00E74011 /* App */,
+				219171722BA1B50200E74011 /* Model */,
+				2191716F2BA1B4BE00E74011 /* Extensions */,
 				219171612BA1AD1000E74011 /* Resources */,
 				219171642BA1AD5B00E74011 /* Generated */,
 				219171632BA1AD3D00E74011 /* SupportingFiles */,
@@ -234,10 +268,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21AA81A72BA1ABC200E4FCDC /* ViewController.swift in Sources */,
+				2191716E2BA1B1B500E74011 /* CircleButton.swift in Sources */,
+				21AA81A72BA1ABC200E4FCDC /* MainViewController.swift in Sources */,
 				21AA81A32BA1ABC200E4FCDC /* AppDelegate.swift in Sources */,
+				219171762BA1B57A00E74011 /* InfoPopupViewController.swift in Sources */,
+				219171712BA1B4EF00E74011 /* PointAnnotation+setup.swift in Sources */,
 				21AA81A52BA1ABC200E4FCDC /* SceneDelegate.swift in Sources */,
 				219171692BA1AE8600E74011 /* XCAssets+Generated.swift in Sources */,
+				2191717A2BA1B67300E74011 /* AnnotationView.swift in Sources */,
+				219171742BA1B51300E74011 /* PointAnnotationInfo.swift in Sources */,
+				219171782BA1B5D000E74011 /* FillDataPopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

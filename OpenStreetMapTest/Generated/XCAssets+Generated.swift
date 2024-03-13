@@ -29,7 +29,7 @@ internal enum Asset {
   internal static let minusZoom = ImageAsset(name: "MinusZoom")
   internal static let moveToCurrentLocation = ImageAsset(name: "MoveToCurrentLocation")
   internal static let nextPointAnnotation = ImageAsset(name: "NextPointAnnotation")
-  internal static let plustZoom = ImageAsset(name: "PlustZoom")
+  internal static let plusZoom = ImageAsset(name: "PlusZoom")
   internal static let pointAnnotation = ImageAsset(name: "PointAnnotation")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
